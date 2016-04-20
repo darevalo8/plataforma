@@ -1,0 +1,32 @@
+{% extends "conquers/base_gastos.html" %}
+
+{% block content %}
+    {% include "conquers/admin/nav.html" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3"></div>
+            <div class="col-sm-6 col-md-6">
+                <h3>Actividades</h3>
+                <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Actividad</th>
+                            <th>Comunidad</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for archivo in archivos %}
+                            <tr>
+                                <td><a href="{% url 'conquers:download' archivo.id %}">{{ archivo.name }}</a></td>
+                                <td>{{archivo.comunity}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'conquers:index' %}"class="btn btn-warning">Volver</a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3"></div>
+{% endblock content %}

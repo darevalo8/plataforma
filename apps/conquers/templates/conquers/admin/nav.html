@@ -1,0 +1,52 @@
+{% extends "conquers/base_gastos.html" %}
+
+{% block content %}
+    <nav class="navbar navbar-default menu">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'conquers:index' %}">Conquers</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            {% if tipo == 1 %}
+                <li><a href="{% url 'conquers:activity' %}">Envio de actividades</a></li>
+
+            {% elif tipo == 2 %}
+                <li><a href="{% url 'conquers:view' %}">Consultas actividades</a></li>
+                <li><a href="{% url 'conquers:nota' %}">Agregar Notas</a></li>
+            {% endif %}
+            <li><a href="{% url 'conquers:consulta' %}">Consulta puntuación</a></li>
+            <li><a href="{% url 'conquers:discus' %}">Discusiones</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                {% if user.is_authenticated %}
+
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.username }}! <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'conquers:logout' %}">Logout</a></li>
+                  </ul>
+                {% else %}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registrarse! <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'conquers:register' 1 %}">Registro de Presidentes</a></li>
+                      <li><a href="{% url 'conquers:register' 2 %}">Registro de Auditores</a></li>
+                    </ul>
+
+            </li>
+                <li><a href="{% url 'conquers:login' %}">Login</a></li>
+                {% endif %}
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+{% endblock content %}

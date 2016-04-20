@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'conquers/css/bootstrap.min.css'  %}">
+    <link rel="stylesheet" href="{% static 'conquers/css/main.css'  %}">
+
+{% endblock styles %}
+
+{% block scripts %}
+   <script src="{% static 'conquers/js/main.js' %}"></script>
+   <script src="{% static 'conquers/js/vendor/jquery.js' %}"></script>
+   <script src="{% static 'conquers/js/vendor/bootstrap.min.js' %}"></script>
+{% endblock scripts %}

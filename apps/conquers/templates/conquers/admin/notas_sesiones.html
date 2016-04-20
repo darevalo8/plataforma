@@ -1,0 +1,34 @@
+{% extends "conquers/base_gastos.html" %}
+
+{% block content %}
+    {% include "conquers/admin/nav.html" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3"></div>
+            <div class="col-sm-6 col-md-6">
+                <h3>Tabla de calificaciones</h3>
+                <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Comunidad</th>
+                            <th>Nombre Del Logro</th>
+                            <th>Calificacion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for notas in nota %}
+                            <tr>
+                                <td>{{notas.comunity}}</td>
+                                <td>{{notas.name}}</td>
+                                <td>{{notas.puntuacion}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+                <a href="{% url 'conquers:index' %}"class="btn btn-warning">Volver</a>
+            </div>
+            <div class="col-sm-6 col-md-3"></div>
+    </div>
+{% endblock content %}

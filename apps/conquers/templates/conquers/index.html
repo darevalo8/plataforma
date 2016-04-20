@@ -1,0 +1,156 @@
+{% extends "conquers/base_gastos.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+    <nav class="navbar navbar-default menu">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'conquers:index' %}">Conquers</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            {% if tipo == 1 %}
+                <li><a href="{% url 'conquers:activity' %}">Envio de actividades</a></li>
+
+            {% elif tipo == 2 %}
+                <li><a href="{% url 'conquers:view' %}">Consultas actividades</a></li>
+                <li><a href="{% url 'conquers:nota' %}">Agregar Notas</a></li>
+            {% endif %}
+            <li><a href="{% url 'conquers:consulta' %}">Consulta puntuación</a></li>
+            <li><a href="{% url 'conquers:discus' %}">Discusiones</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                {% if user.is_authenticated %}
+
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user.username }}! <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'conquers:logout' %}">Logout</a></li>
+                  </ul>
+                {% else %}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registrarse! <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'conquers:register' 1 %}">Registro de Presidentes</a></li>
+                      <li><a href="{% url 'conquers:register' 2 %}">Registro de Auditores</a></li>
+                    </ul>
+
+            </li>
+                <li><a href="{% url 'conquers:login' %}">Login</a></li>
+                {% endif %}
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- TERMINA EL MENU-->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="../../static/conquers/img/1.jpg" alt="...">
+          <div class="carousel-caption">
+            ...
+          </div>
+        </div>
+        <div class="item">
+          <img src="../../static/conquers/img/2.jpg" alt="...">
+          <div class="carousel-caption">
+            ...
+          </div>
+        </div>
+        ...
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!--SLIDE-->
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron ac">
+              <h2>Actividad del dia</h2>
+              <p>...</p>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="../../static/conquers/img/2.jpg" alt="...">
+              <div class="caption mari">
+                <h3>Covenant</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, perferendis nostrum nisi sint autem explicabo, provident dolore commodi veritatis, beatae consectetur harum ut quia maxime tenetur cumque tempora non itaque?</p>
+                <p><a href="#" class="btn btn-primary" role="button">Visitar</a></p>
+              </div>
+            </div>
+          </div>
+          <!--uno-->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="../../static/conquers/img/3.jpg" alt="...">
+              <div class="caption ji">
+                <h3>El Rond</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus sit quis nam labore recusandae ratione dolorem aspernatur, praesentium ipsum modi veritatis tempore expedita exercitationem libero et ut, eligendi nesciunt hic.</p>
+                <p><a href="#" class="btn btn-primary" role="button">Visitar</a></p>
+              </div>
+            </div>
+          </div>
+          <!--Dos-->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <img src="../../static/conquers/img/4.jpg" alt="...">
+              <div class="caption ji">
+                <h3>Black Mamba</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae a repellat cupiditate vitae animi hic enim, sapiente eveniet rem, repellendus expedita quos exercitationem labore obcaecati eligendi nostrum minima amet neque!</p>
+                <p><a href="#" class="btn btn-primary" role="button">Visitar</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="table-responsive">
+                <table class="table table-hover">
+                    <h3>Tabla de posiciones</h3>
+                    <thead>
+                        <tr class="success">
+                            <th >Comunidad</th>
+                            <th >Total Puntos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for total in puntos %}
+                            <tr>
+                                <td class="active">{{total.name}}</td>
+                                <td class="info">{{total.total}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
